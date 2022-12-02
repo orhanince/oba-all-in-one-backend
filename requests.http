@@ -40,6 +40,21 @@ PUT localhost:8080/todo/markTodoCompleted/85e60261-b74b-4ca8-b151-94097aae57fe
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2IwZjg5YTgtNDEzZS00YjQzLThiYjgtYTZhMDMzNjEyNzZjIiwiaWF0IjoxNjY4Njg2Nzg0LCJleHAiOjE2Njg2ODg1ODQsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.Ya5c2p_jZqhCFfHkl-nlBtv_U81iSlgm_4PUMCiA4jA
 
 
+### Form
+
+GET localhost:8080/form
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjNkMTg0ZGMtYTQyMi00YjFjLTk2YTMtN2JiNGRlNWEzZDBlIiwiaWF0IjoxNjcwMDA0Mzk3LCJleHAiOjE2NzAwMDYxOTcsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.IfKTo8lfwkc0X8C45fkM2vlz8hvPlsG_G_hIK6YxXGE
+
+### Create form
+
+POST localhost:8080/form
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjNkMTg0ZGMtYTQyMi00YjFjLTk2YTMtN2JiNGRlNWEzZDBlIiwiaWF0IjoxNjcwMDA2NDQ3LCJleHAiOjE2NzAwMDgyNDcsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.7F6vC8M8KOzoKse7_mf59qP-ZSWduJIxuDGDbjPO_8o
+Content-Type: application/json
+
+{
+  "form_name": "Form 1",
+  "form_content": "Text goes here!"
+}
 
 
 
