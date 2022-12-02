@@ -2,18 +2,16 @@
  * JSDoc documentation
  * https://www.npmjs.com/package/express-jsdoc-swagger
  */
-
 const path = require('path');
 const expressJSDocSwagger = require('express-jsdoc-swagger');
-const packageJson = require(process.env.npm_package_json);
 
 const options = {
   info: {
-    version: process.env.npm_package_version,
-    title: process.env.npm_package_name,
-    description: packageJson.description || '',
+    version: 1.0,
+    title: 'OBA ALL IN ONE API',
+    description: '',
     license: {
-      name: packageJson.license || 'MIT',
+      name: 'GNU PUBLIC LICENCE',
     },
   },
   security: {

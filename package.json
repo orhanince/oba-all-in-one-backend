@@ -1,11 +1,14 @@
 {
-  "name": "fs-todo-api",
+  "name": "oba-all-in-one-api",
   "version": "1.0.0",
   "description": "FoodStyles challenge api.",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "dev:pm2": "pm2 start src/index.js --name oba-all-in-one-backend --watch",
+    "dev-stop:pm2": "pm2 stop oba-all-in-one-backend",
+    "console": "pm2 flush && pm2 log oba-all-in-one-backend 2000",
     "migration:add": "npx sequelize-cli migration:create",
     "migration:up": "npx sequelize-cli db:migrate",
     "migration:down": "npx sequelize-cli db:migrate:undo",

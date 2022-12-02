@@ -69,7 +69,7 @@ router.post(
  * @return {JwtResponse|RegisterResponse} 200 - success response - application/json
  */
 router.post(
-  '/signUp',
+  '/register',
   validatorMiddleware(
     body('name').isString().isLength({ min: 5, max: 100 }),
     body('email').isString().isLength({ min: 5, max: 100 }),
