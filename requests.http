@@ -21,7 +21,15 @@ Content-Type: application/json
   "password": "123456"
 }
 
+### Form
+POST localhost:8080/form/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwNDQwMTkwLCJleHAiOjE2NzA0NDE5OTAsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.NwBeYJQ7w92V2ZiTCMyA_SlddC8LJx4LtLz9IEHplUI
 
+{
+  "form_name": "Test Form",
+  "form_content": "Test Content"
+}
 
 
 

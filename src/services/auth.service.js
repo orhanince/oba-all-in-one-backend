@@ -42,7 +42,6 @@ async function register(req) {
     status: true,
     token: jwt.createJwtToken({
       user_id: userCreatedResponse.user_id,
-      email: userCreatedResponse.email,
     }),
   };
 }
@@ -80,7 +79,7 @@ async function login(req) {
 
   return {
     status: true,
-    token: jwt.createJwtToken({ user_id: user.user_id, email: user.email }),
+    token: jwt.createJwtToken({ user_id: user.data.data.user_id }),
   };
 }
 

@@ -84,9 +84,9 @@ const ApiRequest = async (req, service, opts) => {
       withoutAuth = false,
       options,
     } = opts;
+    console.log('dd', req.headers.authorization);
     try {
       const NOW = new Date();
-
       const config = {
         url: `${service}${route}`,
         params: query,
@@ -106,7 +106,7 @@ const ApiRequest = async (req, service, opts) => {
       const { data } = await axiosRequest(config);
       resolve({ data });
     } catch (e) {
-      resolve([e, null]);
+      resolve({ e });
     }
   });
 };
@@ -269,12 +269,8 @@ const ApiDELETE = (req, service, opts) => {
 
 const ServiceUrl = {
   LOG_SERVICE: process.env.LOG_SERVICE,
-  COMMUNICATION: process.env.COMMUNICATION_SERVICE,
-  CUSTOMER: process.env.CUSTOMER_SERVICE,
-  CATALOG: process.env.SERVICE_CATALOG,
-  TRIP: process.env.SERVICE_TRIP,
-  FINANCE: process.env.FINANCE_SERVICE,
   USER: process.env.USER_SERVICE_URL,
+  FORM: process.env.FORM_SERVICE_URL,
 };
 
 module.exports = {
