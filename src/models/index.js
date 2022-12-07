@@ -12,10 +12,7 @@
  * };
  */
 const { RequestToken } = require('./request_token');
-const { User } = require('./user');
-const { Todo } = require('./todo');
+
 module.exports = {
   RequestToken,
-  User,
-  Todo,
 };

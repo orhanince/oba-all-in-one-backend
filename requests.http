@@ -3,7 +3,7 @@ GET localhost:8080
 
 ### AUTH ###
 ### Sign Up
-POST localhost:8080/auth/register
+POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
@@ -21,26 +21,15 @@ Content-Type: application/json
   "password": "123456"
 }
 
-### TODO ###
-### List todos
-GET localhost/todo/listTodos
-
-
-### Create Todo
-POST localhost:8080/todo/createTodo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMDE2YjIwMWMtZmIxZS00MDFmLWFhMjMtZmNhNjk4Nzc1MTFhIiwiaWF0IjoxNjY4NjgyMDcwLCJleHAiOjE2Njg2ODM4NzAsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.uxQz8ss9z4n380gpNasFQEDl00iQ-r3mLEUxXJUJAqg
+### Form
+POST localhost:8080/form/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwNDQwMTkwLCJleHAiOjE2NzA0NDE5OTAsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.NwBeYJQ7w92V2ZiTCMyA_SlddC8LJx4LtLz9IEHplUI
 
 {
-  "title": "Test todo second."
+  "form_name": "Test Form",
+  "form_content": "Test Content"
 }
-
-### Mark Todo Completed
-PUT localhost:8080/todo/markTodoCompleted/85e60261-b74b-4ca8-b151-94097aae57fe
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2IwZjg5YTgtNDEzZS00YjQzLThiYjgtYTZhMDMzNjEyNzZjIiwiaWF0IjoxNjY4Njg2Nzg0LCJleHAiOjE2Njg2ODg1ODQsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.Ya5c2p_jZqhCFfHkl-nlBtv_U81iSlgm_4PUMCiA4jA
-
-
-
 
 
 

@@ -1,12 +1,12 @@
 const _ = require('lodash');
 const GenericError = require('./../utils/generic-error');
-const cryptoService = require('./crypto.service');
 const jwt = require('./../utils/jwt');
-const userService = require('./user.service');
+const cryptoService = require('./crypto.service');
+const { ApiGET, ApiPOST, ServiceUrl } = require('./../utils/api-caller');
 /**
  * Register
  */
-async function signUp(req) {
+async function register(req) {
   const { name, email, password } = req.body || {};
   if (_.isEmpty(name) || _.isEmpty(email) || _.isEmpty(password)) {
     throw new GenericError(
@@ -15,22 +15,35 @@ async function signUp(req) {
       'Name, Email, Password required.'
     );
   }
-  const user = await userService.getUser({ email });
-  if (!_.isEmpty(user)) {
+
+  const user = await ApiGET(req, ServiceUrl.USER, {
+    route: '/user',
+    withoutAuth: true,
+    payload: {
+      email: email,
+    },
+  });
+
+  if (!_.isEmpty(user.data.data)) {
     throw new GenericError(400, 'user_already_exists', 'User already exists.');
   }
 
-  const userCreatedResponse = await userService.createUser({
-    name,
-    email,
-    password,
+  const userCreatedResponse = await ApiPOST(req, ServiceUrl.USER, {
+    route: '/user',
+    withoutAuth: true,
+    payload: {
+      name: name,
+      email: email,
+      password: password,
+    },
   });
-  if (userCreatedResponse.status) {
-    return {
-      status: true,
-      token: userCreatedResponse.token,
-    };
-  }
+
+  return {
+    status: true,
+    token: jwt.createJwtToken({
+      user_id: userCreatedResponse.user_id,
+    }),
+  };
 }
 
 /**
@@ -48,33 +61,29 @@ async function login(req) {
     );
   }
 
-  const user = await userService.getUser({
-    email,
+  const user = await ApiGET(req, ServiceUrl.USER, {
+    route: '/user',
+    withoutAuth: true,
+    payload: {
+      email: email,
+    },
   });
-  if (!user) {
+
+  if (_.isEmpty(user.data.data)) {
     throw new GenericError(400, 'user_not_found', `User not found.`);
   }
 
-  if (!cryptoService.isEqualHashedPassword(password, user.password)) {
+  if (!cryptoService.isEqualHashedPassword(password, user.data.data.password)) {
     throw new GenericError(400, 'password_wrong', `The password is wrong.`);
   }
 
   return {
     status: true,
-    token: jwt.createJwtToken({ user_id: user.user_id }),
-  };
-}
-
-async function logout(req) {
-  const { request_token_id } = req.AUTH;
-  await userService.revokeRequestToken(request_token_id);
-  return {
-    status: true,
+    token: jwt.createJwtToken({ user_id: user.data.data.user_id }),
   };
 }
 
 module.exports = {
-  signUp,
+  register,
   login,
-  logout,
 };
