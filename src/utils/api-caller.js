@@ -84,14 +84,13 @@ const ApiRequest = async (req, service, opts) => {
       withoutAuth = false,
       options,
     } = opts;
-
     try {
       const NOW = new Date();
 
       const config = {
         url: `${service}${route}`,
         params: query,
-        payload,
+        data: payload,
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +104,7 @@ const ApiRequest = async (req, service, opts) => {
       };
 
       const { data } = await axiosRequest(config);
-      resolve([null, data]);
+      resolve({ data });
     } catch (e) {
       resolve([e, null]);
     }
@@ -275,6 +274,7 @@ const ServiceUrl = {
   CATALOG: process.env.SERVICE_CATALOG,
   TRIP: process.env.SERVICE_TRIP,
   FINANCE: process.env.FINANCE_SERVICE,
+  USER: process.env.USER_SERVICE_URL,
 };
 
 module.exports = {
