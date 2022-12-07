@@ -8,6 +8,21 @@ const auth = require('../middlewares/auth');
 
 /**
  * POST /
+ * @summary Get all user's form.
+ * @tags Service
+ * @return {Service} 200 - success response - application/json
+ */
+router.get('/', ...auth(), async (req, res, next) => {
+  try {
+    const result = await mFormService.getAll(req);
+    res.status(200).json(result);
+  } catch (e) {
+    next(e);
+  }
+});
+
+/**
+ * POST /
  * @summary Create user form
  * @tags Service
  * @return {Service} 200 - success response - application/json

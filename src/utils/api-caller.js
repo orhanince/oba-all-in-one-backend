@@ -84,7 +84,7 @@ const ApiRequest = async (req, service, opts) => {
       withoutAuth = false,
       options,
     } = opts;
-    console.log('dd', req.headers.authorization);
+
     try {
       const NOW = new Date();
       const config = {

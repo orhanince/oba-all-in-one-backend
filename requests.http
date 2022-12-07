@@ -31,5 +31,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwY
   "form_content": "Test Content"
 }
 
+### Get all user's form
+GET localhost:8080/form/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwNDQ0NDAzLCJleHAiOjE2NzA0NDYyMDMsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.FCC0OyW_morHYz3TPhnpXuFaKPyepo_p_4KZ5JFquG4
+
 
 
