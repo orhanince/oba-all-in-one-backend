@@ -36,7 +36,8 @@ router.post(
   ),
   async (req, res, next) => {
     try {
-      res.status(200).json('Ok!');
+      const result = await authService.login(req);
+      res.status(200).json(result);
     } catch (e) {
       // this line is require for global error handling.
       next(e);
