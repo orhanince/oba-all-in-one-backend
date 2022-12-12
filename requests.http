@@ -24,17 +24,27 @@ Content-Type: application/json
 ### Form
 POST localhost:8080/form/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwNDQwMTkwLCJleHAiOjE2NzA0NDE5OTAsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.NwBeYJQ7w92V2ZiTCMyA_SlddC8LJx4LtLz9IEHplUI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwODU2MjU5LCJleHAiOjE2NzA4NTgwNTksImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.uHDBqpTei8WvBEAB1p8iqixlz33j5K8unStaT7qMWaw
 
 {
-  "form_name": "Test Form",
+  "form_name": "Test Form New",
   "form_content": "Test Content"
 }
 
 ### Get all user's form
 GET localhost:8080/form/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwNDQ0NDAzLCJleHAiOjE2NzA0NDYyMDMsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.FCC0OyW_morHYz3TPhnpXuFaKPyepo_p_4KZ5JFquG4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwODU4MDc3LCJleHAiOjE2NzA4NTk4NzcsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.PvO6WOoT_sMajzuiOr9zXdaXsHV0cJh6tZz7_inTCGE
 
+### Publish form
+PUT localhost:8080/form/publish/d3377526-6cac-4970-a3c4-9926ddcc3260
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwODU4MDc3LCJleHAiOjE2NzA4NTk4NzcsImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.PvO6WOoT_sMajzuiOr9zXdaXsHV0cJh6tZz7_inTCGE
+
+
+### Delete form - (soft)
+DELETE localhost:8080/form/bc1dc89d-c1cc-40bd-9646-2acbc602d95b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTMwYmM5ZGYtMmQ2Yi00YmE5LWI1MGItNWQ3NmI0M2RiOWZlIiwiaWF0IjoxNjcwODU2MjU5LCJleHAiOjE2NzA4NTgwNTksImlzcyI6ImZzX2NoYWxsZW5nZV9hcGkifQ.uHDBqpTei8WvBEAB1p8iqixlz33j5K8unStaT7qMWaw
 
 
