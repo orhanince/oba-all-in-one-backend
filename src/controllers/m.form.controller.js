@@ -67,7 +67,7 @@ router.put(
  * PUT /
  */
 router.put(
-  '/',
+  '/:form_id',
   ...auth(),
   validatorMiddleware(
     body('form_name').isString().isLength({ min: 3, max: 100 }),

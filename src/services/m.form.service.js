@@ -43,10 +43,15 @@ async function createForm(req) {
  * @returns {Promise<*>}
  */
 async function updateForm(req) {
+  const { form_id } = req.params || {};
   const { form_name, form_content } = req.body || {};
   let updateFormResponse = await ApiPUT(req, ServiceUrl.FORM, {
-    route: '/form',
-    withoutAuth: false,
+    route: `/form/${form_id}`,
+    withoutAuth: true,
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: req.headers.authorization,
+    },
     payload: {
       form_name: form_name,
       form_content: form_content,
